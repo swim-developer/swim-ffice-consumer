@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="urn:activemq /schema/artemis-configuration.xsd">
+  <core xmlns="urn:activemq:core">
+    <name>ffice-consumer-validator-artemis</name>
+    <persistence-enabled>true</persistence-enabled>
+    <journal-type>NIO</journal-type>
+
+    <acceptors>
+      <acceptor name="amqp">tcp://0.0.0.0:5672?protocols=AMQP;tcpSendBufferSize=1048576;tcpReceiveBufferSize=1048576;amqpCredits=1000;amqpLowCredits=300;amqpMinLargeMessageSize=102400;amqpDuplicateDetection=true</acceptor>
+      <acceptor name="amqps">tcp://0.0.0.0:5671?protocols=AMQP;sslEnabled=true;keyStorePath=/certs/broker.p12;keyStorePassword=changeit;trustStorePath=/certs/ca-truststore.p12;trustStorePassword=changeit;needClientAuth=false</acceptor>
+    </acceptors>
+
+    <security-settings>
+      <security-setting match="#">
+        <permission type="createNonDurableQueue" roles="amq"/>
+        <permission type="deleteNonDurableQueue" roles="amq"/>
+        <permission type="createDurableQueue" roles="amq"/>
+        <permission type="deleteDurableQueue" roles="amq"/>
+        <permission type="createAddress" roles="amq"/>
+        <permission type="deleteAddress" roles="amq"/>
+        <permission type="consume" roles="amq"/>
+        <permission type="browse" roles="amq"/>
+        <permission type="send" roles="amq"/>
+        <permission type="manage" roles="amq"/>
+      </security-setting>
+    </security-settings>
+
+    <address-settings>
+      <address-setting match="#">
+        <dead-letter-address>DLQ</dead-letter-address>
+        <expiry-address>ExpiryQueue</expiry-address>
+        <redelivery-delay>1000</redelivery-delay>
+        <max-size-bytes>-1</max-size-bytes>
+        <message-counter-history-day-limit>10</message-counter-history-day-limit>
+        <address-full-policy>PAGE</address-full-policy>
+        <auto-create-queues>true</auto-create-queues>
+        <auto-create-addresses>true</auto-create-addresses>
+      </address-setting>
+    </address-settings>
+  </core>
+</configuration>

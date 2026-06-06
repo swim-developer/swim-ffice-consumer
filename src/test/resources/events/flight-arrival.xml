@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FICTITIOUS DATA - This file contains synthetic data created exclusively for
+  development and testing purposes. It has no relationship whatsoever with any
+  real operational environment, airline, flight, or air navigation service provider.
+
+  Created for the swim-developer project under the Apache License 2.0.
+  https://github.com/swim-developer
+-->
+<ffice:FficeMessage xmlns:ffice="http://www.fixm.aero/app/ffice/1.1"
+                    xmlns:fx="http://www.fixm.aero/flight/4.3"
+                    xmlns:fb="http://www.fixm.aero/base/4.3">
+    <ffice:flight>
+        <fx:arrival>
+            <fx:arrivalAerodrome>
+                <fb:locationIndicator>LIRF</fb:locationIndicator>
+            </fx:arrivalAerodrome>
+            <fx:destinationAerodrome>
+                <fb:locationIndicator>LIRF</fb:locationIndicator>
+            </fx:destinationAerodrome>
+        </fx:arrival>
+        <fx:departure>
+            <fx:departureAerodrome>
+                <fb:locationIndicator>LFPG</fb:locationIndicator>
+            </fx:departureAerodrome>
+        </fx:departure>
+        <fx:flightIdentification>
+            <fx:aircraftIdentification>AFR101</fx:aircraftIdentification>
+            <fx:gufi codeSpace="urn:uuid" creationTime="2026-05-06T10:00:00Z" namespaceDomain="FULLY_QUALIFIED_DOMAIN_NAME" namespaceIdentifier="swim-developer.github.io">a69de42e-8aff-4605-a890-3035e6f70702</fx:gufi>
+        </fx:flightIdentification>
+    </ffice:flight>
+    <ffice:timestamp>2026-05-06T11:00:00.000Z</ffice:timestamp>
+    <ffice:type>FLIGHT_ARRIVAL</ffice:type>
+    <ffice:uniqueMessageIdentifier codeSpace="urn:uuid">d4e5f6a7-b8c9-4123-9efa-234567890123</ffice:uniqueMessageIdentifier>
+</ffice:FficeMessage>

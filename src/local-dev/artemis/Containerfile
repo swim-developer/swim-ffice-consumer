@@ -1,0 +1,10 @@
+FROM apache/activemq-artemis:2.41.0
+
+USER root
+COPY tls-entrypoint.sh /opt/tls-entrypoint.sh
+RUN chmod +x /opt/tls-entrypoint.sh
+USER artemis
+
+COPY broker.xml /var/lib/artemis-instance/etc/broker.xml
+
+ENTRYPOINT ["/opt/tls-entrypoint.sh"]
